@@ -16,6 +16,9 @@ dependencies {
     implementation(projects.features.start.data)
     implementation(projects.features.start.domain)
 
+    implementation(projects.ui.theme)
+    implementation(projects.ui.components)
+
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)
     testImplementation(libs.junit)
