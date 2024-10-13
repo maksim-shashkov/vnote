@@ -1,28 +1,32 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+    }
+    versionCatalogs {
+        create("libs") {
+            from(files("version-catalogs/libs.toml"))
+        }
     }
 }
 
 // Recursively include all subdirectories as modules
 private fun includeModules(dir: File) {
     dir.listFiles()?.forEach { file ->
-        if (file.isDirectory && file.listFiles()?.any { it.name == "build.gradle.kts" || it.name == "build.gradle" } == true) {
+        if (file.isDirectory && file.listFiles()
+                ?.any { it.name == "build.gradle.kts" || it.name == "build.gradle" } == true
+        ) {
             val moduleName = file.relativeTo(rootDir).path.replace(File.separator, ":")
             include(":$moduleName")
             project(":$moduleName").projectDir = file
@@ -33,6 +37,7 @@ private fun includeModules(dir: File) {
 }
 
 rootProject.name = "vnote"
+
 include(":app")
 includeModules(file("features"))
 includeModules(file("ui"))
