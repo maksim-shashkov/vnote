@@ -6,7 +6,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("libs") {
-            from(files("../version-catalogs/libs.toml"))
+            from(files("../prepare/libs.toml"))
         }
     }
 }

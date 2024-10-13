@@ -14,10 +14,5 @@ android {
 }
 
 dependencies {
-    implementation(libs.bundles.android)
-    implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose.libs)
-
-    testImplementation(libs.junit)
-    testImplementation(libs.mockk)
 }
