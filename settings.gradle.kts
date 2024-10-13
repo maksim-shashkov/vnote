@@ -35,3 +35,4 @@ private fun includeModules(dir: File) {
 rootProject.name = "vnote"
 include(":app")
 includeModules(file("features"))
+includeModules(file("ui"))

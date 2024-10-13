@@ -15,6 +15,9 @@
             <option value="$PROJECT_DIR$/features/start/data" />
             <option value="$PROJECT_DIR$/features/start/domain" />
             <option value="$PROJECT_DIR$/features/start/presentation" />
+            <option value="$PROJECT_DIR$/ui" />
+            <option value="$PROJECT_DIR$/ui/components" />
+            <option value="$PROJECT_DIR$/ui/theme" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
