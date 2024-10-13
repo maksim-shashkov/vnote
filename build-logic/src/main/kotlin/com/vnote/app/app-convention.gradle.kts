@@ -3,6 +3,7 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    //Unfortunately, we cannot add compose gradle plugin here, because it is restricted to specify plugin version here
 }
 
 configure<BaseAppModuleExtension> {
