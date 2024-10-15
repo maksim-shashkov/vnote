@@ -15,10 +15,16 @@ before_script:
   # Create the necessary directory structure for the Android SDK
   - mkdir -p /sdk/cmdline-tools
 
-  # Download and install Android SDK
+  # Download and install Android SDK tools
   - wget "https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip" -O android-tools.zip
   - unzip android-tools.zip -d /sdk/cmdline-tools
-  - mv /sdk/cmdline-tools/cmdline-tools /sdk/cmdline-tools/latest
+  - mkdir -p /sdk/cmdline-tools/latest
+  - mv /sdk/cmdline-tools/cmdline-tools/* /sdk/cmdline-tools/latest/
+
+  # Add sdkmanager to the PATH
+  - export PATH=$PATH:/sdk/cmdline-tools/latest/bin
+
+  # Accept licenses and install SDK components
   - yes | sdkmanager --sdk_root=$ANDROID_SDK_ROOT --licenses
   - sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platforms;android-$ANDROID_COMPILE_SDK" "build-tools;$ANDROID_BUILD_TOOLS" "platform-tools"
 
