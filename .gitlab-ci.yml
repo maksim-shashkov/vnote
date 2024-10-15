@@ -10,6 +10,7 @@ before_script:
   # Download and install Android SDK
   - apt-get update
   - apt-get install -y wget
+  - apt-get install -y unzip
   - wget "https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip" -O android-tools.zip
   - unzip android-tools.zip -d /sdk/cmdline-tools
   - mv /sdk/cmdline-tools/cmdline-tools /sdk/cmdline-tools/latest
