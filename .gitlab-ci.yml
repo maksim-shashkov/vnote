@@ -7,10 +7,15 @@ variables:
   GRADLE_USER_HOME: "$CI_PROJECT_DIR/.gradle"
 
 before_script:
-  # Download and install Android SDK
+  # Install required tools
   - apt-get update
   - apt-get install -y wget
   - apt-get install -y unzip
+
+  # Create the necessary directory structure for the Android SDK
+  - mkdir -p /sdk/cmdline-tools
+
+  # Download and install Android SDK
   - wget "https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip" -O android-tools.zip
   - unzip android-tools.zip -d /sdk/cmdline-tools
   - mv /sdk/cmdline-tools/cmdline-tools /sdk/cmdline-tools/latest
